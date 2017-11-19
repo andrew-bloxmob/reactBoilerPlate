@@ -1,9 +1,13 @@
 var path = require('path');
 var webpack = require('webpack');
+var sass = require('node-sass');
  
 module.exports = {
   entry: './main.js',
-  output: { path: './dist', filename: 'bundle.js' },
+  output: { 
+    path: __dirname + '/dist', 
+    filename: 'bundle.js' 
+  },
   module: {
     loaders: [
       {
