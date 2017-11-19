@@ -7,6 +7,8 @@ const webpackConfig = require('./webpack.config.js');
 
 const watch = require('gulp-watch');
 
+const sass = require('gulp-sass');
+
 gulp.task('js', () => {
     gulp.src('./src/js/index.js')
         .pipe(webpackStream(webpackConfig), webpack)
@@ -21,11 +23,12 @@ var nodemonOptions = {
     },
     verbose: false,
     ignore: [],
-    watch: ['**/**']
+    watch: ['server.js']
 };
 
 gulp.task('start-dev', () => {
     gulp.start('webpack');
+    gulp.start('sass:watch');
     nodemon(nodemonOptions)
         .on('restart', function () {
             console.log('restarted!');
@@ -34,10 +37,21 @@ gulp.task('start-dev', () => {
 
 gulp.task('webpack', () => {
     console.log('Webpack watch initiated');
-    return watch('**/*.jsx', function () {
+    return watch(['./src/**/*.jsx', './main.js'], function () {
         gulp.src('./main.js')
             .pipe(webpackStream(webpackConfig), webpack)
             .pipe(gulp.dest('./dist'));
         console.log('Finished compiling webpack bundles');
     });
+});
+
+
+gulp.task('sass', function () {
+  return gulp.src('./sass/**/*.scss')
+    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(gulp.dest('./css'));
+});
+ 
+gulp.task('sass:watch', function () {
+  gulp.watch('./sass/**/*.scss', ['sass']);
 });

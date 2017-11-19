@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Navigation from './Navigation.jsx';
+import Navigation from './components/navigation/Navigation.jsx';
 import Home from './Home.jsx';
 import {
   BrowserRouter as Router,
