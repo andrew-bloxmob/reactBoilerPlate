@@ -1,0 +1,34 @@
+{
+  "name": "reactproject",
+  "version": "1.0.0",
+  "description": "Boiler plate",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/andrew-bloxmob/reactBoilerPlate.git)"
+  },
+  "keywords": [
+    "react",
+    "boiler",
+    "plate"
+  ],
+  "author": "Andrew Rubiano",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-router-dom": "^4.2.2",
+    "uglify-js": "^3.1.9"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.8.1"
+  }
+}
